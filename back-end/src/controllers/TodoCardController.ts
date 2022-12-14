@@ -23,7 +23,7 @@ class TodoCardController {
     };
 
     try {
-      const newTodoCard = await this.service.insert(todoCard);
+      const newTodoCard = await this.service.create(todoCard);
       return this.res.status(201).json(newTodoCard);
     } catch (error) {
       this.next(error);
