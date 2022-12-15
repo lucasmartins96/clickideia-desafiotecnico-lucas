@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  mongodb:
+    container_name: appdb
+    env_file: .env
+    image: mongo:5.0.7
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+    ports:
+      - 27017:27017
+    volumes:
+      - ./:/app
+  node:
+    image: node:latest
+    container_name: appbackend
+    env_file: .env
+    user: node
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - mongodb
+    ports:
+      - 5000:5000
+    environment:
+      - DB_URI_CONNECTION_START=$MONGODB_URI_START
+      - DB_HOST=mongodb
+      - DB_USER=$MONGODB_USER
+      - DB_PASSWORD=$MONGODB_PASSWORD
+      - DB_NAME=$MONGODB_DATABASE
