@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
+import { authConfig } from '../config';
 
 class AuthHandler {
   public static handle(req: Request, res: Response, next: NextFunction) {
@@ -12,7 +13,7 @@ class AuthHandler {
 
       token = token.replace('Bearer ', '');
 
-      const verified = verify(token, 'SECRET');
+      const verified = verify(token, authConfig.secret);
 
       if (!verified)
         return res
