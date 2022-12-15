@@ -15,10 +15,11 @@ class AuthHandler {
 
       const verified = verify(token, authConfig.secret);
 
-      if (!verified)
+      if (!verified) {
         return res
           .status(401)
           .json({ message: 'Token verification failed, authorization denied!' });
+      }
 
       next();
     } catch (error) {
