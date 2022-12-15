@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
-import ITodoCard from '../interfaces/ITodoCard';
+import { body, ValidationError, validationResult } from 'express-validator';
 
 class ValidationHandler {
   public static handle(req: Request, res: Response, next: NextFunction) {
