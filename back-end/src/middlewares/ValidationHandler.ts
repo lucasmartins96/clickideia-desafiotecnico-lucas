@@ -11,6 +11,12 @@ class ValidationHandler {
     next();
   }
 
+  private static getErrorMessage(errors: Record<string, ValidationError>) {
+    return Object.keys(errors).reduce((accumulator, currentKey) => {
+      return accumulator.concat(errors[currentKey].msg);
+    }, '');
+  }
+
   public static getBodyValidationsMiddlewares() {
     return [
       body('title').notEmpty().withMessage('title is empty'),
