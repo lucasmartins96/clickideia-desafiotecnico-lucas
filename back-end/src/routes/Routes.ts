@@ -1,21 +1,12 @@
 import { Router } from 'express';
-import TodoCardController from '../controllers/TodoCardController';
 import AuthHandler from '../middlewares/AuthHandler';
-import ValidationHandler from '../middlewares/ValidationHandler';
+import authRoute from './Auth';
+import todoCardRoute from './TodoCard';
 
 const routes = Router();
-const validationsMiddlewares = ValidationHandler.getBodyValidationsMiddlewares();
 
-routes
-  .route('/cards')
-  .post(
-    AuthHandler.handle,
-    ...validationsMiddlewares,
-    ValidationHandler.handle,
-    (req, res, next) => new TodoCardController(req, res, next).create()
-  )
-  .get(AuthHandler.handle, (req, res, next) =>
-    new TodoCardController(req, res, next).getAll()
-  );
+routes.use('/login', authRoute);
+
+routes.use('/cards', AuthHandler.handle, todoCardRoute);
 
 export default routes;
