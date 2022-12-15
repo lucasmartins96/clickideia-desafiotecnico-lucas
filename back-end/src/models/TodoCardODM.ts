@@ -21,6 +21,10 @@ class TodoCardODM {
   public getAll(): Promise<ITodoCard[]> {
     return this.model.find({}).exec();
   }
+
+  public deleteById(id: String): Promise<ITodoCard | null> {
+    return this.model.findByIdAndDelete(id).exec();
+  }
 }
 
 export default TodoCardODM;

@@ -38,6 +38,22 @@ class TodoCardController {
       this.next(error);
     }
   }
+
+  public async deleteById() {
+    const id = this.req.params.id;
+
+    try {
+      const allTodoCards = await this.service.deleteById(id);
+
+      if (!allTodoCards) {
+        return this.res.status(404).json({ message: 'TodoCard not found' });
+      }
+
+      return this.res.status(200).json(allTodoCards);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default TodoCardController;
