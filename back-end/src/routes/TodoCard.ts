@@ -10,7 +10,12 @@ todoCardRoute
   .delete(ValidationHandler.handleParamId, (req, res, next) =>
     new TodoCardController(req, res, next).deleteById()
   )
-  .put();
+  .put(
+    ...validationsMiddlewares,
+    ValidationHandler.handle,
+    ValidationHandler.handleParamId,
+    (req, res, next) => new TodoCardController(req, res, next).updateById()
+  );
 
 todoCardRoute
   .route('/')

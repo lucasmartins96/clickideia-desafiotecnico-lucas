@@ -54,6 +54,27 @@ class TodoCardController {
       this.next(error);
     }
   }
+
+  public async updateById() {
+    const todoCard: ITodoCard = {
+      id: this.req.params.id,
+      title: this.req.body.title,
+      content: this.req.body.content,
+      list: this.req.body.list,
+    };
+
+    try {
+      const newTodoCard = await this.service.updateById(todoCard);
+
+      if (!newTodoCard) {
+        return this.res.status(404).json({ message: 'TodoCard not found' });
+      }
+
+      return this.res.status(200).json(newTodoCard);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default TodoCardController;

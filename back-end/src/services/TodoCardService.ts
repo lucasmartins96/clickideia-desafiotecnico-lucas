@@ -32,8 +32,20 @@ class TodoCardService {
     return todoCardDeleted;
   }
 
-  // public async update(todoCard: ITodoCard) {}
-  // public async checkIsEmpty() {}
+  public async updateById(todoCard: ITodoCard) {
+    const todoCardODM = new TodoCardODM();
+    const id = todoCard.id;
+    const { title, content, list } = todoCard;
+    const todoCardUpdated = { title, content, list };
+
+    const newTodoCard = await todoCardODM.updateById(id!, todoCardUpdated);
+
+    if (!newTodoCard) {
+      return newTodoCard;
+    }
+
+    return this.createTodoCardDomain(newTodoCard);
+  }
 }
 
 export default TodoCardService;
