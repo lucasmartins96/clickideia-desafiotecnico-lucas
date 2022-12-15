@@ -13,6 +13,9 @@ routes
     ...validationsMiddlewares,
     ValidationHandler.handle,
     (req, res, next) => new TodoCardController(req, res, next).create()
+  )
+  .get(AuthHandler.handle, (req, res, next) =>
+    new TodoCardController(req, res, next).getAll()
   );
 
 export default routes;

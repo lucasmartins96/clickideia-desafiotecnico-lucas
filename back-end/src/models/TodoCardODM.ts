@@ -17,6 +17,10 @@ class TodoCardODM {
   public create(todoCard: ITodoCard): Promise<ITodoCard> {
     return this.model.create({ ...todoCard });
   }
+
+  public getAll(): Promise<ITodoCard[]> {
+    return this.model.find({}).exec();
+  }
 }
 
 export default TodoCardODM;

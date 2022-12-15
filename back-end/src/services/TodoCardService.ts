@@ -16,9 +16,14 @@ class TodoCardService {
     return this.createTodoCardDomain(newTodoCard);
   }
 
+  public async getAll() {
+    const todoCardODM = new TodoCardODM();
+    const allTodoCards = await todoCardODM.getAll();
+    return allTodoCards.map((todoCards) => this.createTodoCardDomain(todoCards));
+  }
+
   // public async update(todoCard: ITodoCard) {}
   // public async remove(id: string) {}
-  // public async getAll() {}
   // public async checkIsEmpty() {}
 }
 

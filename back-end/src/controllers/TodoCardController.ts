@@ -29,6 +29,15 @@ class TodoCardController {
       this.next(error);
     }
   }
+
+  public async getAll() {
+    try {
+      const allTodoCards = await this.service.getAll();
+      return this.res.status(200).json(allTodoCards);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default TodoCardController;
