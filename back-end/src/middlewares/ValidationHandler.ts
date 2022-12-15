@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { body, ValidationError, validationResult } from 'express-validator';
+import { isValidObjectId } from 'mongoose';
 
 class ValidationHandler {
   public static handle(req: Request, res: Response, next: NextFunction) {
@@ -23,6 +24,21 @@ class ValidationHandler {
       body('content').notEmpty().withMessage('content is empty'),
       body('list').notEmpty().withMessage('list is empty'),
     ];
+  }
+
+  public static handleParamId(req: Request, res: Response, next: NextFunction) {
+    const id = req.params.id;
+
+    switch (true) {
+      case !id:
+      case id.trim().length == 0:
+      case !isValidObjectId(id):
+        return res.status(400).json({ message: 'invalid or missing id' });
+      default:
+        break;
+    }
+
+    next();
   }
 }
 
