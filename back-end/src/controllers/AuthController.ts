@@ -31,6 +31,7 @@ class AuthController {
     try {
       return this.res.status(200).json({ token });
     } catch (error) {
+      console.log(error);
       this.next(error);
     }
   }
