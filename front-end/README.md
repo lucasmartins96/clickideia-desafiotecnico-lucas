@@ -1,56 +1,46 @@
-# Create React App example with styled-components & TypeScript
+# Clickideia Desafio Técnico Fullstack - Frontend
 
-The main difference between this and the non-typescript example is that you need to add the following path config to your tsconfig:
+App de gerenciamento de Todo Cards
 
-```json
-"paths": {
-  "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
-}
+# Sumário
+
+<!--ts-->
+
+- [Como executar o projeto](#como-executar-o-projeto)
+  - [Pré Requisitos](#pré-requisitos)
+  - [Configurando variáveis de ambiente](#configurando-variáveis-de-ambiente)
+  - [Rodando o front-end](#rodando-a-aplicação-web)
+  <!--te-->
+
+## 🚀Como executar o projeto
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/) e o navegador [Google Chrome](https://www.google.com/intl/pt-BR/chrome/). Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/download).
+
+### Configurando variáveis de ambiente
+
+Na pasta front-end no arquivo `.env.example` contém um modelo das variáveis de ambiente.
+
+As variáveis LOGIN e PASSWORD dizem respeito as informações que o endpoint de login espera como corretas.
+
+### Rodando a aplicação web
+
+```bash
+# Acesse a pasta frontend
+$ cd front-end
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação
+$ npm start
+
+# A aplicação React iniciará automaticamente na porta:3001. Caso não inicie automaticamente, acesse http://localhost:3000
 ```
 
-and install @types/styled-components:
+## Justificativa
 
-```sh
-npm install --save-dev @types/styled-components
-```
+Infelizmente o projeto está incompleto com conteúdos estáticos e estruturados para serem dinâmicos. A aplicação consegue realizar o login e requisitar alguns cards, mas não são exibidos na aplicação.
 
-Alternatively, to skip this configuration, you can set `skipLibCheck: true` in your tsconfig.
-
-## How to use
-
-Download the example [or clone the repo](https://github.com/mui/material-ui):
-
-<!-- #default-branch-switch -->
-
-```sh
-curl https://codeload.github.com/mui/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app-with-styled-components-typescript
-cd create-react-app-with-styled-components-typescript
-```
-
-Install it and run:
-
-```sh
-npm install
-npm start
-```
-
-## CodeSandbox
-
-<!-- #default-branch-switch -->
-
-Note that CodeSandbox is not supporting react-app-rewired, yet you can [still see the code](https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/create-react-app-with-styled-components-typescript).
-
-The following link leverages this demo: https://mui.com/guides/interoperability/#change-the-default-styled-engine with Parcel's alias feature within the `package.json`
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/styled-components-interoperability-w9z9d)
-
-## The idea behind the example
-
-This example demonstrates how you can setup [Create React App](https://github.com/facebookincubator/create-react-app) with [styled-components](https://styled-components.com/) as a style engine for your application using TypeScript.
-
-## What's next?
-
-<!-- #default-branch-switch -->
-
-You now have a working example project.
-You can head back to the documentation, continuing browsing it from the [templates](https://mui.com/material-ui/getting-started/templates/) section.
+A deficiência técnica foi um fator determinante para a não conclusão do projeto.
