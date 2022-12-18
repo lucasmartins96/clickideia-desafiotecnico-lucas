@@ -31,7 +31,6 @@ function Copyright() {
 export default function App() {
   return (
     <>
-      <CssBaseline />
       <NewTodoForm />
       <TodosDashboard />
     </>
