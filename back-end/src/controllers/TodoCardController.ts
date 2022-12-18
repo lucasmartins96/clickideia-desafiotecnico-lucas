@@ -26,6 +26,7 @@ class TodoCardController {
       const newTodoCard = await this.service.create(todoCard);
       return this.res.status(201).json(newTodoCard);
     } catch (error) {
+      console.log(error);
       this.next(error);
     }
   }
@@ -35,6 +36,7 @@ class TodoCardController {
       const allTodoCards = await this.service.getAll();
       return this.res.status(200).json(allTodoCards);
     } catch (error) {
+      console.log(error);
       this.next(error);
     }
   }
@@ -51,6 +53,7 @@ class TodoCardController {
 
       return this.res.status(200).json(allTodoCards);
     } catch (error) {
+      console.log(error);
       this.next(error);
     }
   }
@@ -72,6 +75,7 @@ class TodoCardController {
 
       return this.res.status(200).json(newTodoCard);
     } catch (error) {
+      console.log(error);
       this.next(error);
     }
   }
