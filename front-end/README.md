@@ -10,6 +10,8 @@ App de gerenciamento de Todo Cards
   - [Pré Requisitos](#pré-requisitos)
   - [Configurando variáveis de ambiente](#configurando-variáveis-de-ambiente)
   - [Rodando o front-end](#rodando-a-aplicação-web)
+- [Justificativa](#justificativa)
+
   <!--te-->
 
 ## 🚀Como executar o projeto
@@ -36,7 +38,7 @@ $ npm install
 # Execute a aplicação
 $ npm start
 
-# A aplicação React iniciará automaticamente na porta:3001. Caso não inicie automaticamente, acesse http://localhost:3000
+# A aplicação React iniciará automaticamente na porta:3000. Caso não inicie automaticamente, acesse http://localhost:3000
 ```
 
 ## Justificativa
